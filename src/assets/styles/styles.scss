@@ -32,21 +32,67 @@ header {
         font-weight: 700;
     }
 
-    ul {
-        display: flex;
+    .header-menu {
+        position: relative;
 
-        li {
-            .header-nav {
-                font-size: 1.8rem;
-                padding: 0 10px;
+        ul {
+            @include xs {
+                display: none;
             }
 
-            .active {
-                font-weight: 700;
-                text-decoration: underline;
+            display: flex;
+
+            li {
+                .header-nav {
+                    font-size: 1.8rem;
+                    padding: 0 10px;
+                }
+
+                .active {
+                    font-weight: 700;
+                    text-decoration: underline;
+                }
             }
         }
+
+        .header-menu-icon {
+            display: none;
+            font-size: 3rem;
+            color: white;
+
+            @include xs {
+                display: block;
+            }
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            box-shadow: var(--box-shadow);
+            top: 9.5rem;
+            right: 1rem;
+            padding: 3rem 1.5rem;
+            width: 20rem;
+            background: white;
+
+            ul {
+                display: block;
+
+                li {
+                    margin: 2rem 0;
+
+                    a {
+                        color: var(--text);
+                    }
+                }
+            }
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
     }
+
 }
 
 .content {
